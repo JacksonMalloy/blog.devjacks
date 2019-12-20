@@ -1,42 +1,31 @@
+import React, { useState, useMemo } from "react"
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { useScrollPosition } from "../components/useScrollPosition"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = () => {
+  const [hideOnScroll, setHideOnScroll] = useState(true)
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isShow = currPos.y > prevPos.y
+      if (isShow !== hideOnScroll) setHideOnScroll(isShow)
+    },
+    [hideOnScroll],
+    null,
+    false,
+    100
+  )
 
-Header.defaultProps = {
-  siteTitle: ``,
+  return useMemo(
+    () => (
+      <header show={hideOnScroll}>
+        <div>
+          <Link to="/">Hello from header</Link>
+        </div>
+      </header>
+    ),
+    [hideOnScroll]
+  )
 }
 
 export default Header
