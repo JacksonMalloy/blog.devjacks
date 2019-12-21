@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react"
 import { Link } from "gatsby"
 import { useScrollPosition } from "../components/useScrollPosition"
-import { NavigationHeader } from "../styles"
+import { NavigationFooter } from "../styles"
 
-const Header = () => {
+const Footer = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
 
   useScrollPosition(
@@ -19,14 +19,14 @@ const Header = () => {
 
   return useMemo(
     () => (
-      <NavigationHeader show={hideOnScroll}>
+      <NavigationFooter show={hideOnScroll}>
         <div>
-          <Link to="/">Hello from header</Link>
+          <Link to="/">Hello from Footer</Link>
         </div>
-      </NavigationHeader>
+      </NavigationFooter>
     ),
     [hideOnScroll]
   )
 }
 
-export default Header
+export default Footer
