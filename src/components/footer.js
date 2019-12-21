@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react"
-import { Link } from "gatsby"
 import { useScrollPosition } from "../components/useScrollPosition"
 import { NavigationFooter } from "../styles"
+import { SearchBox } from "react-instantsearch-dom"
 
 const Footer = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
@@ -20,9 +20,7 @@ const Footer = () => {
   return useMemo(
     () => (
       <NavigationFooter show={hideOnScroll}>
-        <div>
-          <Link to="/">Hello from Footer</Link>
-        </div>
+        <SearchBox />
       </NavigationFooter>
     ),
     [hideOnScroll]

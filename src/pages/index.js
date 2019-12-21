@@ -1,13 +1,14 @@
 import React from "react"
+import { Hits } from "react-instantsearch-dom"
 import Layout from "../layout"
-
+import PostPreview from "../components/postPreview"
 import { Container, MainBody } from "../styles"
 
 const IndexPage = () => (
   <Layout>
     <MainBody>
       <Container>
-        <h1>Hi from home</h1>
+        <Hits hitComponent={PostPreview} />
       </Container>
     </MainBody>
   </Layout>
