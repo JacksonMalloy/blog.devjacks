@@ -1,6 +1,8 @@
 import React from "react"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import { MyThemeProvider } from "../themeContext"
+
 import { GlobalStyles } from "../globalStyles"
 import algoliasearch from "algoliasearch/lite"
 import { InstantSearch } from "react-instantsearch-dom"
@@ -14,11 +16,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <InstantSearch searchClient={searchClient} indexName="Posts">
-        <Header />
-        {children}
-        <Footer />
-      </InstantSearch>
+      <MyThemeProvider>
+        <InstantSearch searchClient={searchClient} indexName="Posts">
+          <Header />
+          {children}
+          <Footer />
+        </InstantSearch>
+      </MyThemeProvider>
     </>
   )
 }

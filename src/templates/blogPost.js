@@ -1,45 +1,42 @@
-// import React from "react"
-// import Layout from "../layout"
-// import { Link, graphql } from "gatsby"
-// import { Container, MainBody } from "../styles"
+import React from "react"
+import Layout from "../layout"
+import { graphql } from "gatsby"
+import { MainBody } from "../styles"
 
-// export default ({ data }) => {
-//   return (
-//     <Layout>
-//       <MainBody>
-//         {data.allMarkdownRemark.edges.map(({ node }) => (
-//           <Container key={node.id}>
-//             <Link to={node.fields.slug}>
-//               <h3>
-//                 {node.frontmatter.title}
-//                 <span>{node.frontmatter.date}</span>
-//               </h3>
-//               <p>{node.excerpt}</p>
-//             </Link>
-//           </Container>
-//         ))}
-//       </MainBody>
-//     </Layout>
-//   )
-// }
+const BlogPostTemplate = props => {
+  const post = props.data.markdownRemark
+  const siteTitle = props.data.site.siteMetadata.title
 
-// export const query = graphql`
-//   query {
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       totalCount
-//       edges {
-//         node {
-//           id
-//           frontmatter {
-//             title
-//             date(formatString: "DD MMMM, YYYY")
-//           }
-//           fields {
-//             slug
-//           }
-//           excerpt
-//         }
-//       }
-//     }
-//   }
-// `
+  return (
+    <Layout location={props.location} title={siteTitle}>
+      <MainBody>
+        <h1>{post.frontmatter.title}</h1>
+        <p>{post.frontmatter.date}</p>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <hr />
+      </MainBody>
+    </Layout>
+  )
+}
+
+export default BlogPostTemplate
+
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+      }
+    }
+  }
+`

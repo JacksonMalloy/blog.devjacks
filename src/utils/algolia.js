@@ -1,20 +1,24 @@
 const postQuery = `{
-    posts: allMarkdownRemark(
-        filter: {
-            fileAbsolutePath: { regex: "/posts/"}
-        }
-    ) {
-        edges {
-            node {
-                objectId: id
-                frontmatter {
-                    title
-                    date
-                }
-                excerpt(pruneLength: 5000)
-            }
-        }
-    }
+  posts: allMarkdownRemark(
+      filter: {
+          fileAbsolutePath: { regex: "/posts/"}
+      }
+  ) {
+      edges {
+          node {
+              objectId: id
+              frontmatter {
+                  title
+                  date
+                  
+              }
+              fields {
+                slug
+              }
+              excerpt(pruneLength: 5000)
+          }
+      }
+  }
 }`
 
 const flatten = arr =>
