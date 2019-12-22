@@ -50,25 +50,3 @@ export const NavigationFooter = styled.footer`
   transition: 0.1s linear;
   transform: ${props => (props.show ? "none" : "translateY(100%)")};
 `
-
-export const PostList = styled.section`
-  display: grid;
-  grid-gap: 1rem;
-  margin-top: calc(50px + 1rem);
-  width: 100%;
-`
-
-export const PostContent = styled.section`
-  margin-top: calc(50px + 1rem);
-  width: 100%;
-  display: grid;
-`
-
-export const SinglePost = styled.article`
-  display: grid;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  min-height: 275px;
-  border: 1px solid black;
-`

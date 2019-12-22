@@ -10,12 +10,30 @@ const postQuery = `{
               frontmatter {
                   title
                   date
-                  
+                  featuredImage {
+                	  childImageSharp {
+                      fluid(maxWidth: 800) {
+                        base64
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                        originalImg
+                        originalName
+                        presentationWidth
+                        presentationHeight
+                        __typename
+                      }
+                    }
+                	} 
               }
               fields {
                 slug
               }
-              excerpt(pruneLength: 5000)
+              excerpt(pruneLength: 100)
           }
       }
   }

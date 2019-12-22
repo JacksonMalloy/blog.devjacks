@@ -1,9 +1,10 @@
 import React from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import { connectHits, connectHighlight } from "react-instantsearch-dom"
 import Layout from "../layout"
 import { Container, MainBody } from "../styles"
-import { Link } from "gatsby"
-
-import { connectHits, connectHighlight } from "react-instantsearch-dom"
+import { HitList, PostPreview } from "../styles/post"
 
 // ------------- Custom Highlights -------------- //
 const Highlight = ({ highlight, attribute, hit }) => {
@@ -31,20 +32,30 @@ const CustomHighlight = connectHighlight(Highlight)
 
 // ------------- Custom Hits -------------- //
 const Hits = ({ hits }) => (
-  <section>
+  <HitList>
     {hits.map(hit => (
       <Link to={hit.fields.slug} key={hit.objectID}>
-        <h3>
-          <CustomHighlight hit={hit} attribute="title" />
-        </h3>
-        <small>{new Date(hit.date).toLocaleDateString()}</small>
+        <PostPreview>
+          <h3>
+            <CustomHighlight hit={hit} attribute="title" />
+          </h3>
+          <small>{new Date(hit.date).toLocaleDateString()}</small>
+          {hit.featuredImage === null ? (
+            <></>
+          ) : (
+            <Img
+              fluid={hit.featuredImage.childImageSharp.fluid}
+              alt={hit.objectID}
+            />
+          )}
 
-        <p>
-          <CustomHighlight hit={hit} attribute="excerpt" />
-        </p>
+          <p>
+            <CustomHighlight hit={hit} attribute="excerpt" />
+          </p>
+        </PostPreview>
       </Link>
     ))}
-  </section>
+  </HitList>
 )
 
 const CustomHits = connectHits(Hits)
