@@ -30,6 +30,31 @@ const Highlight = ({ highlight, attribute, hit }) => {
 const CustomHighlight = connectHighlight(Highlight)
 // ------------- Custom Highlights -------------- //
 
+// ------------- Custom Snippets -------------- //
+
+const Snippet = ({ highlight, attribute, hit }) => {
+  const parsedHit = highlight({
+    highlightProperty: "_snippetResult",
+    attribute,
+    hit,
+  })
+
+  return (
+    <span>
+      {parsedHit.map((part, index) =>
+        part.isHighlighted ? (
+          <mark key={index}>{part.value}</mark>
+        ) : (
+          <span key={index}>{part.value}</span>
+        )
+      )}
+    </span>
+  )
+}
+
+const CustomSnippet = connectHighlight(Snippet)
+// ------------- Custom Snippets -------------- //
+
 // ------------- Custom Hits -------------- //
 const Hits = ({ hits }) => (
   <HitList>
@@ -50,7 +75,8 @@ const Hits = ({ hits }) => (
           )}
 
           <p>
-            <CustomHighlight hit={hit} attribute="excerpt" />
+            {console.log(hit)}
+            <CustomSnippet hit={hit} attribute="excerpt" />
           </p>
         </PostPreview>
       </Link>

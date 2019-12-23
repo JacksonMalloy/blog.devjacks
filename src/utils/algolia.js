@@ -33,7 +33,7 @@ const postQuery = `{
               fields {
                 slug
               }
-              excerpt(pruneLength: 100)
+              excerpt(pruneLength: 5000)
           }
       }
   }
