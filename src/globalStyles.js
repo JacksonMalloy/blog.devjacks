@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components"
 export const GlobalStyles = createGlobalStyle`
     *, :after, :before {
         box-sizing: inherit;
+        text-decoration: none;
     }
 
     /* Normalize v8.0.1*/
@@ -37,18 +38,14 @@ export const GlobalStyles = createGlobalStyle`
     overflow: visible; /* 2 */
     }
 
-
     pre {
     font-family: monospace, monospace; /* 1 */
     font-size: 1em; /* 2 */
     }
 
-
     a {
     background-color: transparent;
     }
-
-
 
     abbr[title] {
     border-bottom: none; /* 1 */

@@ -75,7 +75,6 @@ const Hits = ({ hits }) => (
           )}
 
           <p>
-            {console.log(hit)}
             <CustomSnippet hit={hit} attribute="excerpt" />
           </p>
         </PostPreview>

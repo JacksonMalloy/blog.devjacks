@@ -1,21 +1,25 @@
-import React from "react"
-import Layout from "../layout"
 import { graphql } from "gatsby"
+import React from "react"
+import BlogLayout from "../layout/blogLayout"
 import { MainBody } from "../styles"
+import HeaderBlog from "../components/headerBlog"
 
 const BlogPostTemplate = props => {
   const post = props.data.markdownRemark
   const siteTitle = props.data.site.siteMetadata.title
 
+  const target = React.createRef()
+
   return (
-    <Layout location={props.location} title={siteTitle}>
-      <MainBody>
+    <BlogLayout location={props.location} title={siteTitle}>
+      <HeaderBlog target={target} />
+
+      <MainBody ref={target}>
         <h1>{post.frontmatter.title}</h1>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr />
       </MainBody>
-    </Layout>
+    </BlogLayout>
   )
 }
 

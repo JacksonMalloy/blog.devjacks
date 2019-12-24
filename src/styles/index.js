@@ -11,8 +11,45 @@ export const NavigationHeader = styled.header`
   border: 1px solid black;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};
-  transition: 0.3s linear;
+  transition: 0.3s ease-out;
   transform: ${props => (props.show ? "none" : "translateY(-100%)")};
+  z-index: 2;
+`
+
+export const BlogNavigationHeader = styled.header`
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  align-items: center;
+  background-color: ${props => props.theme.backgroundcolor};
+  transition: 0.3s ease-out;
+  transform: ${props => (props.show ? "none" : "translateY(-90%)")};
+  z-index: 2;
+
+  div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      flex: 12;
+    }
+
+    &.reading-progress-bar {
+      position: absolute;
+      height: 5px;
+      bottom: 0px;
+      background-color: ${props => props.theme.highlightcolor};
+      z-index: 3;
+      flex: 1;
+    }
+  }
 `
 
 // MAIN
@@ -47,6 +84,7 @@ export const NavigationFooter = styled.footer`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};
-  transition: 0.1s linear;
+  transition: 0.3s ease-in;
   transform: ${props => (props.show ? "none" : "translateY(100%)")};
+  z-index: 2;
 `

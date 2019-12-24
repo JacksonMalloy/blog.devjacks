@@ -1,11 +1,11 @@
 import React from "react"
-import Header from "../components/header"
-import Footer from "../components/footer"
-import { MyThemeProvider } from "../themeContext"
-
-import { GlobalStyles } from "../globalStyles"
 import algoliasearch from "algoliasearch/lite"
 import { InstantSearch } from "react-instantsearch-dom"
+
+import { MyThemeProvider } from "../themeContext"
+import { GlobalStyles } from "../globalStyles"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const searchClient = algoliasearch(
   "18G3P2N5MW",
