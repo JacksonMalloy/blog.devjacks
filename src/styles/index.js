@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-// HEADER
+// HEADER - Main
 export const NavigationHeader = styled.header`
   display: flex;
   flex-direction: column;
@@ -16,6 +16,7 @@ export const NavigationHeader = styled.header`
   z-index: 2;
 `
 
+// HEADER - Blog
 export const BlogNavigationHeader = styled.header`
   display: flex;
   flex-direction: column;

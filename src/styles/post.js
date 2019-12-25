@@ -14,3 +14,9 @@ export const PostPreview = styled.article`
   border: 1px solid black;
   padding: 0.5rem;
 `
+
+export const Content = styled.div`
+  display: grid;
+  border: 1px solid black;
+  padding: 0.5rem;
+`
