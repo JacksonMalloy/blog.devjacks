@@ -27,7 +27,7 @@ export const BlogNavigationHeader = styled.header`
   border: 1px solid black;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};
-  transition: 0.3s ease-out;
+  transition: 0.1s ease-out;
   transform: ${props => (props.show ? "none" : "translateY(-90%)")};
   z-index: 2;
 
@@ -57,8 +57,9 @@ export const BlogNavigationHeader = styled.header`
 export const MainBody = styled.main`
   margin-top: 50px;
   height: auto;
-  width: 100%;
   border: 1px solid black;
+  border-right: none;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,8 +68,9 @@ export const MainBody = styled.main`
 // CONTAINER
 export const Container = styled.div`
   height: 100%;
-  width: 100%;
   border: 1px solid black;
+  border-right: none;
+  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,7 +87,7 @@ export const NavigationFooter = styled.footer`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};
-  transition: 0.3s ease-in;
+  transition: 0.1s ease-in;
   transform: ${props => (props.show ? "none" : "translateY(100%)")};
   z-index: 2;
 `

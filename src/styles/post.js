@@ -3,7 +3,6 @@ import styled from "styled-components"
 export const HitList = styled.section`
   display: grid;
   grid-gap: 1rem;
-  width: 100%;
 `
 
 export const PostPreview = styled.article`

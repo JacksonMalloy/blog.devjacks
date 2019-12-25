@@ -9,7 +9,7 @@ import Footer from "../components/footer"
 
 const searchClient = algoliasearch(
   "18G3P2N5MW",
-  "25f24d36bb2b6da179416f9e4ec013a9"
+  "35964dd5dcb42a25619fd527a56a1112"
 )
 
 const Layout = ({ children }) => {
