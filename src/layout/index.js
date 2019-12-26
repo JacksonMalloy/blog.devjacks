@@ -15,8 +15,8 @@ const searchClient = algoliasearch(
 const Layout = ({ children }) => {
   return (
     <>
-      <GlobalStyles />
       <MyThemeProvider>
+        <GlobalStyles />
         <InstantSearch searchClient={searchClient} indexName="Posts">
           <Header />
           {children}

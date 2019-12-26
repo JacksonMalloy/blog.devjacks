@@ -80,10 +80,10 @@ export const GlobalStyles = createGlobalStyle`
     *, :after, :before {
         box-sizing: inherit;
         text-decoration: none;
-        font: 400 15px Roboto, sans-serif;
+        font: 400 13px Roboto, sans-serif;
     }
 
-     html {
+    html {
         line-height: 1.15; /* 1 */
         -webkit-text-size-adjust: 100%; /* 2 */
     }
@@ -104,32 +104,55 @@ export const GlobalStyles = createGlobalStyle`
 
     h1 {
         font-size: 4rem;
-        margin: 0.67em 0;
-        font-weight: 900;
+        margin: 3rem 0.67rem;
+        font-weight: 900; 
+        color: ${props => props.theme.subprimary};
     }
 
     h2 {
         font-size: 2.667rem;
-        margin: 0.67em 0;
-        font-weight: 700;
+        margin: 3rem 0.67rem;
+        font-weight: 700; 
+        color: ${props => props.theme.subprimary};
     }
 
     h3 {
         font-size: 1.778rem;
-        margin: 0.67em 0;
-        font-weight: 500;
+        margin: 2rem 0.67rem;
+        font-weight: 700; 
+        line-height: 3rem;
+        color: ${props => props.theme.subprimary};
     }
 
     h4 {
         font-size: 1.185rem;
-        margin: 0.67em 0;
-        font-weight: 400;
+        margin: 1.5rem 0.67rem;
+        font-weight: 900; 
+        line-height: 2rem;
+        color: ${props => props.theme.subprimary};
     }
 
     p {
         font-size: 1.185rem;
-        margin: 0.67em 0;
+        margin: 0.67rem;
         font-weight: 300;
+        line-height: 2rem;
+        color: ${props => props.theme.subprimary};
+    }
+
+    mark {
+        font-size: 1.185rem;
+        font-weight: 300;
+        line-height: 2rem;
+        color: ${props => props.theme.primary};
+        background-color: ${props => props.theme.highlightcolor};
+    }
+
+    .titleHighlight {
+        font-size: 4rem;
+        font-weight: 900; 
+        color: ${props => props.theme.primary};
+        background-color: ${props => props.theme.highlightcolor};
     }
 
     span {
@@ -143,6 +166,8 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
         font-size: 1.185rem;
         font-weight: 300;
+        line-height: 2rem;
+        color: ${props => props.theme.subprimary};
     }
 
     hr {
@@ -152,8 +177,10 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     pre {
-        font-family: monospace, monospace; /* 1 */
-        font-size: 1em; /* 2 */
+        font-size: 1.185rem;
+        margin: 0.67rem;
+        font-weight: 300;
+        line-height: 2rem;
     }
 
     abbr[title] {

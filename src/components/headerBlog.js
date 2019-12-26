@@ -29,7 +29,7 @@ const HeaderBlog = ({ target }) => {
         </BlogNavigationHeader>
       </>
     ),
-    [hideOnScroll]
+    [hideOnScroll, target]
   )
 }
 

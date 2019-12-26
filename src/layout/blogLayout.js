@@ -5,8 +5,10 @@ import { GlobalStyles } from "../globalStyles"
 const BlogLayout = ({ children }) => {
   return (
     <>
-      <GlobalStyles />
-      <MyThemeProvider>{children}</MyThemeProvider>
+      <MyThemeProvider>
+        <GlobalStyles />
+        {children}
+      </MyThemeProvider>
     </>
   )
 }

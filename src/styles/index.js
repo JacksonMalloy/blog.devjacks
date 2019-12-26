@@ -8,7 +8,8 @@ export const NavigationHeader = styled.header`
   top: 0;
   width: 100%;
   height: 50px;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};
   transition: 0.3s ease-out;
@@ -24,7 +25,8 @@ export const BlogNavigationHeader = styled.header`
   top: 0;
   width: 100%;
   height: 50px;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};
   transition: 0.1s ease-out;
@@ -57,7 +59,6 @@ export const BlogNavigationHeader = styled.header`
 export const MainBody = styled.main`
   margin-top: 50px;
   height: auto;
-  border: 1px solid black;
   border-right: none;
   border-left: none;
   display: flex;
@@ -68,7 +69,6 @@ export const MainBody = styled.main`
 // CONTAINER
 export const Container = styled.div`
   height: 100%;
-  border: 1px solid black;
   border-right: none;
   border-left: none;
   display: flex;
@@ -83,7 +83,8 @@ export const NavigationFooter = styled.footer`
   bottom: 0px;
   width: 100%;
   height: 50px;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   justify-content: center;
   align-items: center;
   background-color: ${props => props.theme.backgroundcolor};

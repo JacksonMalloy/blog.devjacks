@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { connectHits, connectHighlight } from "react-instantsearch-dom"
@@ -15,15 +15,17 @@ const Highlight = ({ highlight, attribute, hit }) => {
   })
 
   return (
-    <span>
+    <>
       {parsedHit.map((part, index) =>
         part.isHighlighted ? (
-          <mark key={index}>{part.value}</mark>
+          <mark key={index} className="titleHighlight">
+            {part.value}
+          </mark>
         ) : (
-          <span key={index}>{part.value}</span>
+          <Fragment key={index}>{part.value}</Fragment>
         )
       )}
-    </span>
+    </>
   )
 }
 
@@ -40,15 +42,15 @@ const Snippet = ({ highlight, attribute, hit }) => {
   })
 
   return (
-    <span>
+    <>
       {parsedHit.map((part, index) =>
         part.isHighlighted ? (
           <mark key={index}>{part.value}</mark>
         ) : (
-          <span key={index}>{part.value}</span>
+          <Fragment key={index}>{part.value}</Fragment>
         )
       )}
-    </span>
+    </>
   )
 }
 
@@ -61,10 +63,10 @@ const Hits = ({ hits }) => (
     {hits.map(hit => (
       <Link to={hit.fields.slug} key={hit.objectID}>
         <PostPreview>
-          <h3>
+          <h1>
             <CustomHighlight hit={hit} attribute="title" />
-          </h3>
-          <small>{new Date(hit.date).toLocaleDateString()}</small>
+          </h1>
+          <p>{new Date(hit.date).toLocaleDateString()}</p>
           {hit.featuredImage === null ? (
             <></>
           ) : (
