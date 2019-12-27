@@ -6,51 +6,57 @@ const postQuery = `{
   ) {
       edges {
           node {
+              excerpt(pruneLength: 5000)
               objectId: id
               frontmatter {
                   title
                   date
-                  featuredImage {
-                	  childImageSharp {
-                      fluid(maxWidth: 800) {
-                        base64
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                        originalImg
-                        originalName
-                        presentationWidth
-                        presentationHeight
-                        __typename
-                      }
-                    }
-                	} 
+                  slug
+                  subtitle
+                  keywords
               }
-              fields {
-                slug
-              }
-              excerpt(pruneLength: 5000)
           }
       }
   }
 }`
 
-const flatten = arr =>
-  arr.map(({ node: { frontmatter, ...rest } }) => ({
+const unnestFrontmatter = node => {
+  const { frontmatter, ...rest } = node
+
+  return {
     ...frontmatter,
     ...rest,
+  }
+}
+
+const handleExcerpt = node => {
+  const { excerpt, ...rest } = node
+
+  const sections = excerpt.split("\n\n")
+
+  const records = sections.map(section => ({
+    ...rest,
+    content: section,
   }))
 
-const settings = { attributesToSnippet: [`excerpt:20`] }
+  return records
+}
+
+const settings = {
+  attributesToSnippet: [`excerpt:20`],
+  attributeForDistinct: "slug",
+  distinct: true,
+}
 
 const queries = [
   {
     query: postQuery,
-    transformer: ({ data }) => flatten(data.posts.edges),
+    transformer: ({ data }) =>
+      data.posts.edges
+        .map(edge => edge.node)
+        .map(unnestFrontmatter)
+        .map(handleExcerpt)
+        .reduce((acc, cur) => [...acc, ...cur], []),
     indexName: `Posts`,
     settings,
   },

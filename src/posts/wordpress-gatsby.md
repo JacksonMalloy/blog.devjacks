@@ -1,6 +1,9 @@
 ---
 title: "Headless WordPress"
 date: "2019-12-21"
+slug: "/wordpress-gatsby/"
+subtitle: "The Future of WordPress"
+keywords: ["wordpress", "gatsby"]
 featuredImage: ../images/gatsby-icon.png
 ---
 

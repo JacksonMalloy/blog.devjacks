@@ -2,6 +2,9 @@
 title: "Search Engine Optimization"
 date: "2019-12-26"
 featuredImage: ../images/gatsby-astronaut.png
+slug: "/search-engine-optimization/"
+keywords: ["SEO"]
+subtitle: "A Modern Strategy for SEO"
 ---
 
 A lot of agencies and businesses have the wrong idea when it comes to optimizing for search engines. Most people believe that if they just focus on the content of the webpage by defining all the right keywords, that they will rank high. This is usually not the case, and with an ever expanding presence of new competition online, doing so will likely get drowned out by the noise. What can we do differently?
