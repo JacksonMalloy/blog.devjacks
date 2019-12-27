@@ -1,10 +1,16 @@
 import React, { useState, useMemo } from "react"
 import { Link } from "gatsby"
+import { withTheme } from "styled-components"
+
 import { useScrollPosition } from "./useScrollPosition"
 import { NavigationHeader } from "../styles"
+import { useTheme } from "../themeContext"
+import BrandLogo from "../svg/brandLogo"
 
 const Header = ({ target }) => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
+
+  const themeToggle = useTheme()
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -21,12 +27,14 @@ const Header = ({ target }) => {
     () => (
       <>
         <NavigationHeader show={hideOnScroll}>
-          <Link to="/">home</Link>
+          <div onClick={() => themeToggle.toggle()}>
+            <BrandLogo />
+          </div>
         </NavigationHeader>
       </>
     ),
-    [hideOnScroll]
+    [hideOnScroll, themeToggle]
   )
 }
 
-export default Header
+export default withTheme(Header)

@@ -1,18 +1,31 @@
 import React, { useState, useMemo } from "react"
 import { useScrollPosition } from "../components/useScrollPosition"
-import { NavigationFooter } from "../styles"
+import {
+  NavigationFooter,
+  SearchInput,
+  SearchForm,
+  SearchSubmit,
+} from "../styles"
 import { connectSearchBox } from "react-instantsearch-dom"
 
-const SearchBox = ({ currentRefinement, isSearchStalled, refine }) => (
-  <form noValidate action="" role="search">
-    <input
-      type="search"
-      value={currentRefinement}
-      onChange={event => refine(event.currentTarget.value)}
-    />
-    <button onClick={() => refine("")}>Search</button>
-    {isSearchStalled ? "My search is stalled" : ""}
-  </form>
+const SearchBox = ({ currentRefinement, refine }) => (
+  <SearchForm noValidate action="" role="search">
+    <SearchInput className="input-effect">
+      <input
+        className="effect-19"
+        type="search"
+        value={currentRefinement}
+        placeholder="Search"
+        onChange={event => refine(event.currentTarget.value)}
+      />
+
+      <span className="focus-border">
+        <i></i>
+      </span>
+    </SearchInput>
+
+    <SearchSubmit onClick={() => refine("")}>Refesh</SearchSubmit>
+  </SearchForm>
 )
 
 const CustomSearchBox = connectSearchBox(SearchBox)

@@ -23,7 +23,7 @@ export const PostTitle = styled.h1`
 
 export const PostDate = styled.p`
   font-size: 9rem;
-  color: ${props => props.theme.primary};
+  color: ${props => props.theme.highlightcolor};
   font-weight: 900;
   height: 100%;
   text-align: center;
