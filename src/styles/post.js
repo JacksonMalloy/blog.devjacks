@@ -10,10 +10,26 @@ export const PostPreview = styled.article`
   justify-content: center;
   align-items: center;
   min-height: 275px;
-  padding: 0.5rem;
 `
 
 export const Content = styled.div`
   display: grid;
   padding: 0.5rem;
+`
+
+export const PostTitle = styled.h1`
+  text-align: center;
+`
+
+export const PostDate = styled.p`
+  font-size: 9rem;
+  color: ${props => props.theme.primary};
+  font-weight: 900;
+  height: 100%;
+  text-align: center;
+`
+
+export const PostExcerpt = styled.p`
+  text-align: center;
+  padding: 20px;
 `

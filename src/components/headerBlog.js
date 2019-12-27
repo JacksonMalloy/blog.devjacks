@@ -15,7 +15,7 @@ const HeaderBlog = ({ target }) => {
     [hideOnScroll],
     null,
     false,
-    100
+    0
   )
 
   return useMemo(

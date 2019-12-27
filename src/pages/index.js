@@ -3,8 +3,15 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { connectHits, connectHighlight } from "react-instantsearch-dom"
 import Layout from "../layout"
-import { Container, MainBody } from "../styles"
-import { HitList, PostPreview } from "../styles/post"
+import { MainBody } from "../styles"
+import {
+  HitList,
+  PostPreview,
+  Content,
+  PostDate,
+  PostTitle,
+  PostExcerpt,
+} from "../styles/post"
 
 // ------------- Custom Highlights -------------- //
 const Highlight = ({ highlight, attribute, hit }) => {
@@ -63,22 +70,26 @@ const Hits = ({ hits }) => (
     {hits.map(hit => (
       <Link to={hit.fields.slug} key={hit.objectID}>
         <PostPreview>
-          <h1>
+          <PostTitle>
             <CustomHighlight hit={hit} attribute="title" />
-          </h1>
-          <p>{new Date(hit.date).toLocaleDateString()}</p>
-          {hit.featuredImage === null ? (
+          </PostTitle>
+          <PostDate>
+            {Array.from(hit.date)
+              .splice(0, 4)
+              .concat()}
+          </PostDate>
+          {/* {hit.featuredImage === null ? (
             <></>
           ) : (
             <Img
               fluid={hit.featuredImage.childImageSharp.fluid}
               alt={hit.objectID}
             />
-          )}
+          )} */}
 
-          <p>
+          <PostExcerpt>
             <CustomSnippet hit={hit} attribute="excerpt" />
-          </p>
+          </PostExcerpt>
         </PostPreview>
       </Link>
     ))}
@@ -91,9 +102,9 @@ const CustomHits = connectHits(Hits)
 const IndexPage = () => (
   <Layout>
     <MainBody>
-      <Container>
+      <Content>
         <CustomHits />
-      </Container>
+      </Content>
     </MainBody>
   </Layout>
 )

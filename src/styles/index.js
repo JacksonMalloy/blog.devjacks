@@ -64,6 +64,8 @@ export const MainBody = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 320px;
+  overflow-x: hidden;
 `
 
 // CONTAINER
