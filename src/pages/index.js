@@ -11,6 +11,7 @@ import {
   PostDate,
   PostTitle,
   PostExcerpt,
+  PostKeywords,
 } from "../styles/post"
 
 // ------------- Custom Highlights -------------- //
@@ -67,6 +68,7 @@ const CustomSnippet = connectHighlight(Snippet)
 // ------------- Custom Hits -------------- //
 const Hits = ({ hits }) => (
   <HitList>
+    {console.log(hits)}
     {hits.map(hit => (
       <Link to={hit.fields.slug} key={hit.objectID}>
         <PostPreview>
@@ -78,7 +80,18 @@ const Hits = ({ hits }) => (
               .splice(0, 4)
               .concat()}
           </PostDate>
-          {/* {hit.featuredImage === null ? (
+
+          <PostExcerpt>
+            <CustomSnippet hit={hit} attribute="excerpt" />
+          </PostExcerpt>
+        </PostPreview>
+        <PostKeywords>
+          {hit.keywords.map(keyword => (
+            <h2>{keyword}</h2>
+          ))}
+        </PostKeywords>
+
+        {/* {hit.featuredImage === null ? (
             <></>
           ) : (
             <Img
@@ -86,11 +99,6 @@ const Hits = ({ hits }) => (
               alt={hit.objectID}
             />
           )} */}
-
-          <PostExcerpt>
-            <CustomSnippet hit={hit} attribute="excerpt" />
-          </PostExcerpt>
-        </PostPreview>
       </Link>
     ))}
   </HitList>
