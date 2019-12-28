@@ -8,8 +8,8 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 
 const searchClient = algoliasearch(
-  "18G3P2N5MW",
-  "35964dd5dcb42a25619fd527a56a1112"
+  "IZ2HFIF8IL",
+  "0f12e4219e9f986d121b3da6a403de1a"
 )
 
 const Layout = ({ children }) => {

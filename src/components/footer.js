@@ -1,11 +1,7 @@
 import React, { useState, useMemo } from "react"
 import { useScrollPosition } from "../components/useScrollPosition"
-import {
-  NavigationFooter,
-  SearchInput,
-  SearchForm,
-  SearchSubmit,
-} from "../styles"
+import { NavigationFooter } from "../styles"
+import { SearchInput, SearchForm, SearchSubmit } from "../styles/search"
 import { connectSearchBox } from "react-instantsearch-dom"
 
 const SearchBox = ({ currentRefinement, refine }) => (

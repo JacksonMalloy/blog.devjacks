@@ -23,7 +23,7 @@ const HeaderBlog = ({ target }) => {
       <>
         <BlogNavigationHeader show={hideOnScroll} className="headerBlog">
           <div>
-            <Link to="/">home</Link>
+            <Link to="/"></Link>
             <ReadingProgress target={target} />
           </div>
         </BlogNavigationHeader>

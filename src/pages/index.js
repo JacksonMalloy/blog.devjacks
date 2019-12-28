@@ -12,6 +12,7 @@ import {
   PostTitle,
   PostExcerpt,
   PostKeywords,
+  PostSubtitle,
 } from "../styles/post"
 
 // ------------- Custom Highlights -------------- //
@@ -68,28 +69,30 @@ const CustomSnippet = connectHighlight(Snippet)
 // ------------- Custom Hits -------------- //
 const Hits = ({ hits }) => (
   <HitList>
-    {console.log(hits)}
     {hits.map(hit => (
-      <Link to={hit.fields.slug} key={hit.objectID}>
+      <Link to={hit.slug} key={hit.objectID}>
         <PostPreview>
           <PostTitle>
             <CustomHighlight hit={hit} attribute="title" />
           </PostTitle>
+
           <PostDate>
             {Array.from(hit.date)
               .splice(0, 4)
               .concat()}
           </PostDate>
 
+          <PostSubtitle>{hit.subtitle}</PostSubtitle>
+
           <PostExcerpt>
-            <CustomSnippet hit={hit} attribute="excerpt" />
+            <CustomSnippet hit={hit} attribute="content" />
           </PostExcerpt>
         </PostPreview>
-        <PostKeywords>
-          {hit.keywords.map(keyword => (
-            <h2>{keyword}</h2>
+        {/* <PostKeywords>
+          {hit.keywords.map((keyword, index) => (
+            <h2 key={index}>{keyword}</h2>
           ))}
-        </PostKeywords>
+        </PostKeywords> */}
 
         {/* {hit.featuredImage === null ? (
             <></>

@@ -48,3 +48,8 @@ export const PostKeywords = styled.div`
   width: 100%;
   position: absolute;
 `
+export const PostSubtitle = styled.h4`
+  text-align: right;
+  padding-top: 15px;
+  padding-right: 10px;
+`
