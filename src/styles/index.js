@@ -49,37 +49,35 @@ export const BlogNavigationHeader = styled.header`
     flex-direction: column;
     justify-content: center;
 
+    @media (min-width: 450px) {
+      .navigation {
+        max-width: 450px;
+        min-width: 450px;
+        width: 450px;
+      }
+    }
+
     &.navigation {
       display: flex;
       position: relative;
       flex-direction: row-reverse;
       align-items: center;
-      width: 100%;
+      justify-content: space-between;
+      min-width: 320px;
 
       .navItems {
-        position: absolute;
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
         flex: 1;
         width: 100%;
         text-align: left;
-        left: 0;
 
         a {
           padding: 0px 35px 0px 0px;
           font-weight: 900;
           letter-spacing: 5px;
         }
-      }
-
-      .brandLogo {
-        display: flex;
-        flex: 1;
-        align-content: flex-end;
-        padding-left: 125px;
-        position: absolute;
-        right: 0;
       }
     }
 
