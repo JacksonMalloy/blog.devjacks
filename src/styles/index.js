@@ -45,11 +45,42 @@ export const BlogNavigationHeader = styled.header`
     width: 100%;
     height: 100%;
     position: relative;
-    display: flex;
+    display: grid;
     flex-direction: column;
+    justify-content: center;
 
-    a {
-      flex: 12;
+    &.navigation {
+      display: flex;
+      position: relative;
+      flex-direction: row-reverse;
+      align-items: center;
+      width: 100%;
+
+      .navItems {
+        position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        flex: 1;
+        width: 100%;
+        text-align: left;
+        left: 0;
+
+        a {
+          padding: 0px 35px 0px 0px;
+          font-weight: 900;
+          letter-spacing: 5px;
+        }
+      }
+
+      .brandLogo {
+        display: flex;
+        flex: 1;
+        align-content: flex-end;
+        padding-left: 125px;
+        position: absolute;
+        right: 0;
+      }
     }
 
     &.reading-progress-bar {
@@ -79,8 +110,6 @@ export const MainBody = styled.main`
 // CONTAINER
 export const Container = styled.div`
   height: 100%;
-  border-right: none;
-  border-left: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,4 +130,7 @@ export const NavigationFooter = styled.footer`
   z-index: 2;
   backdrop-filter: blur(30px);
   opacity: 0.9;
+
+  @media (min-width: 700px) {
+  }
 `

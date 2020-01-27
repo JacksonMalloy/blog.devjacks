@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from "react"
-import { useScrollPosition } from "../components/useScrollPosition"
+import React, { useState } from "react"
 import { NavigationFooter } from "../styles"
 import { SearchInput, SearchForm, SearchSubmit } from "../styles/search"
 import { connectSearchBox } from "react-instantsearch-dom"
@@ -29,24 +28,10 @@ const CustomSearchBox = connectSearchBox(SearchBox)
 const Footer = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
 
-  useScrollPosition(
-    ({ prevPos, currPos }) => {
-      const isShow = currPos.y > prevPos.y
-      if (isShow !== hideOnScroll) setHideOnScroll(isShow)
-    },
-    [hideOnScroll],
-    null,
-    false,
-    0
-  )
-
-  return useMemo(
-    () => (
-      <NavigationFooter show={hideOnScroll}>
-        <CustomSearchBox />
-      </NavigationFooter>
-    ),
-    [hideOnScroll]
+  return (
+    <NavigationFooter show={hideOnScroll}>
+      <CustomSearchBox />
+    </NavigationFooter>
   )
 }
 

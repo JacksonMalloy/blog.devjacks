@@ -1,11 +1,15 @@
 import React, { useState, useMemo } from "react"
 import { Link } from "gatsby"
+import { withTheme } from "styled-components"
 import { useScrollPosition } from "./useScrollPosition"
 import { BlogNavigationHeader } from "../styles"
 import ReadingProgress from "../components/readingProgress"
+import BrandLogo from "../svg/brandLogo"
+import { useTheme } from "../themeContext"
 
 const HeaderBlog = ({ target }) => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
+  const themeToggle = useTheme()
 
   useScrollPosition(
     ({ prevPos, currPos }) => {
@@ -23,7 +27,16 @@ const HeaderBlog = ({ target }) => {
       <>
         <BlogNavigationHeader show={hideOnScroll} className="headerBlog">
           <div>
-            <Link to="/"></Link>
+            <div className="navigation">
+              <div onClick={() => themeToggle.toggle()} className="brandLogo">
+                <BrandLogo />
+              </div>
+              <div className="navItems">
+                <a href="https://app.devjacks.com">Contact</a>
+                <Link to="/">Back</Link>
+              </div>
+            </div>
+
             <ReadingProgress target={target} />
           </div>
         </BlogNavigationHeader>
@@ -33,4 +46,4 @@ const HeaderBlog = ({ target }) => {
   )
 }
 
-export default HeaderBlog
+export default withTheme(HeaderBlog)

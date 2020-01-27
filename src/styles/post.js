@@ -20,6 +20,11 @@ export const Content = styled.div`
   display: grid;
   padding: 0.5rem;
   z-index: 2;
+  max-width: 450px;
+
+  /* @media (min-width: 700px) {
+    max-width: ;
+  } */
 `
 
 export const PostTitle = styled.h1`
