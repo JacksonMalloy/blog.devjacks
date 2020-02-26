@@ -15,6 +15,33 @@ import {
   PostSubtitle,
 } from "../styles/post"
 
+const Highlight = ({ highlight, attribute, hit }) => {
+  const parsedHit = highlight({
+    highlightProperty: "_highlightResult",
+    attribute,
+    hit,
+  })
+
+  return (
+    <>
+      {parsedHit.map((part, index) =>
+        part.isHighlighted ? (
+          // Adds a highlight to the string
+          <mark key={index} className="titleHighlight">
+            {part.value}
+          </mark>
+        ) : (
+          // Need fragment component to add key
+          <Fragment key={index}>{part.value}</Fragment>
+        )
+      )}
+    </>
+  )
+}
+
+// HOC for custom highlights
+const CustomHighlight = connectHighlight(Highlight)
+
 const Snippet = ({ highlight, attribute, hit }) => {
   const parsedHit = highlight({
     highlightProperty: "_snippetResult",
@@ -26,7 +53,7 @@ const Snippet = ({ highlight, attribute, hit }) => {
     <>
       {parsedHit.map((part, index) =>
         part.isHighlighted ? (
-          // Adds a highlight to the matching string
+          // Adds a highlight to the string
           <mark key={index}>{part.value}</mark>
         ) : (
           // Need fragment component to add key
@@ -37,6 +64,7 @@ const Snippet = ({ highlight, attribute, hit }) => {
   )
 }
 
+// HOC for custom snippets
 const CustomSnippet = connectHighlight(Snippet)
 
 const Hits = ({ hits }) => (
