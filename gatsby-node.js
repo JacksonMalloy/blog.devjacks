@@ -52,6 +52,7 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
+// Generates nodes on MarkDown files in .src/posts/*
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
