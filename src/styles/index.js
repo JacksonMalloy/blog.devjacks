@@ -94,15 +94,35 @@ export const BlogNavigationHeader = styled.header`
 
 // MAIN
 export const MainBody = styled.main`
-  margin-top: 50px;
-  height: auto;
+  height: 100vh;
   border-right: none;
   border-left: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "a b b b b b b b b b c"
+    "a b b b b b b b b b d";
+  grid-auto-flow: row dense;
   min-width: 320px;
   overflow-x: hidden;
+  z-index: 3;
+`
+
+// MAIN
+export const MainBody2 = styled.main`
+  height: 100vh;
+  border-right: none;
+  border-left: none;
+  display: grid;
+  position: fixed;
+  grid-template-areas:
+    "e f f f f f f f f f g"
+    "e f f f f f f f f f h";
+  grid-auto-flow: row dense;
+  width: 100%;
+  overflow-x: hidden;
+  z-index: 1;
+
+  top: 0;
 `
 
 // CONTAINER
@@ -111,24 +131,4 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
-
-// FOOTER
-export const NavigationFooter = styled.footer`
-  display: flex;
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  height: 50px;
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.theme.backgroundcolor};
-  transition: 0.1s ease-in;
-  transform: ${props => (props.show ? "none" : "translateY(100%)")};
-  z-index: 2;
-  backdrop-filter: blur(30px);
-  opacity: 0.9;
-
-  @media (min-width: 700px) {
-  }
 `

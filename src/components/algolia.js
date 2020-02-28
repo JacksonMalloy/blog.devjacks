@@ -1,19 +1,55 @@
 import React, { Fragment } from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
 import { connectHits, connectHighlight } from "react-instantsearch-dom"
-import Layout from "../layout"
-import { MainBody } from "../styles"
-import {
-  HitList,
-  PostPreview,
-  Content,
-  PostDate,
-  PostTitle,
-  PostExcerpt,
-  PostKeywords,
-  PostSubtitle,
-} from "../styles/post"
+import styled from "styled-components"
+
+const HitList = styled.section`
+  display: grid;
+  grid-gap: 1rem;
+
+  a {
+    position: relative;
+  }
+`
+
+const PostPreview = styled.article`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 275px;
+  transition: 0.3s linear;
+
+  &:hover {
+    box-shadow: 4px 4px 30px ${props => props.theme.primary};
+    transition: 0.3s linear;
+  }
+`
+
+const PostTitle = styled.h1`
+  text-align: right;
+  z-index: 2;
+`
+
+const PostDate = styled.p`
+  font-size: 9rem;
+  color: ${props => props.theme.highlightcolor};
+  font-weight: 900;
+  height: 100%;
+  text-align: right;
+  z-index: 2;
+`
+
+const PostExcerpt = styled.p`
+  text-align: right;
+  padding: 20px 7px 20px 20px;
+  z-index: 2;
+`
+
+const PostSubtitle = styled.h4`
+  text-align: right;
+  padding-top: 15px;
+  padding-right: 10px;
+`
 
 const Highlight = ({ highlight, attribute, hit }) => {
   const parsedHit = highlight({

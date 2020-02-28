@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react"
-import { Link } from "gatsby"
 import { withTheme } from "styled-components"
 
 import { useScrollPosition } from "./useScrollPosition"

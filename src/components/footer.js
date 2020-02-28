@@ -1,7 +1,26 @@
 import React, { useState } from "react"
-import { NavigationFooter } from "../styles"
+import styled from "styled-components"
+
 import { SearchInput, SearchForm, SearchSubmit } from "../styles/search"
 import { connectSearchBox } from "react-instantsearch-dom"
+
+const StyledNavigationFooter = styled.footer`
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.theme.backgroundcolor};
+  transition: 0.1s ease-in;
+  transform: ${props => (props.show ? "none" : "translateY(100%)")};
+  z-index: 2;
+  backdrop-filter: blur(30px);
+  opacity: 0.9;
+  max-width: 450px;
+  padding: 2rem;
+`
 
 const SearchBox = ({ currentRefinement, refine }) => (
   <SearchForm noValidate action="" role="search">
@@ -29,9 +48,9 @@ const Footer = () => {
   const [hideOnScroll, setHideOnScroll] = useState(true)
 
   return (
-    <NavigationFooter show={hideOnScroll}>
+    <StyledNavigationFooter show={hideOnScroll}>
       <CustomSearchBox />
-    </NavigationFooter>
+    </StyledNavigationFooter>
   )
 }
 

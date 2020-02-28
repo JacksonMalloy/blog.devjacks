@@ -5,7 +5,6 @@ import { InstantSearch } from "react-instantsearch-dom"
 import { MyThemeProvider } from "../themeContext"
 import { GlobalStyles } from "../globalStyles"
 import Header from "../components/header"
-import Footer from "../components/footer"
 
 const searchClient = algoliasearch(
   "IZ2HFIF8IL",
@@ -20,7 +19,6 @@ const Layout = ({ children }) => {
         <InstantSearch searchClient={searchClient} indexName="Posts">
           <Header />
           {children}
-          <Footer />
         </InstantSearch>
       </MyThemeProvider>
     </>

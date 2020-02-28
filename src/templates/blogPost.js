@@ -2,7 +2,6 @@ import { graphql } from "gatsby"
 import React from "react"
 import BlogLayout from "../layout/blogLayout"
 import { MainBody } from "../styles"
-import { Content } from "../styles/post"
 import HeaderBlog from "../components/headerBlog"
 
 const BlogPostTemplate = props => {
@@ -15,11 +14,9 @@ const BlogPostTemplate = props => {
     <BlogLayout location={props.location} title={siteTitle}>
       <HeaderBlog target={target} />
       <MainBody ref={target}>
-        <Content>
-          <h1>{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        </Content>
+        <h1>{post.frontmatter.title}</h1>
+        <p>{post.frontmatter.date}</p>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </MainBody>
     </BlogLayout>
   )

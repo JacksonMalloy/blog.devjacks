@@ -46,5 +46,27 @@ module.exports = {
         chunkSize: 10000, // default: 1000
       },
     },
+    {
+      resolve: `gatsby-source-twitter`,
+      options: {
+        credentials: {
+          consumer_key: "zP21pmaKqtwKq01RGJfto8BZb",
+          consumer_secret: "cfQioPRmrZmlbDXIpecNUGCN3xzFJhpcZpaTuk3pu8F2PfM6Yg",
+          bearer_token:
+            "AAAAAAAAAAAAAAAAAAAAAKkOCwEAAAAAcTkL8IpGeeHf1wudCOsC2dD3Vok%3D2BsYDQBwXsTyEkxcIFUcjr4hqv4TFrIdMMZaG2qQLpHGKOyYbr",
+        },
+        queries: {
+          devjacks: {
+            endpoint: "statuses/user_timeline",
+            params: {
+              screen_name: "devjacks",
+              include_rts: false,
+              exclude_replies: true,
+              tweet_mode: "extended",
+            },
+          },
+        },
+      },
+    },
   ],
 }

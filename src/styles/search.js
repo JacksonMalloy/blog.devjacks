@@ -8,12 +8,9 @@ export const SearchInput = styled.div`
     border: none;
     height: 100%;
     width: 100%;
-    transition: 0.4s;
+    transition: 0.2s;
     background: transparent;
-
-    ::placeholder {
-      padding: 0px 10px;
-    }
+    padding-left: 1rem;
   }
 
   .effect-19 ~ .focus-border:before,
@@ -25,11 +22,12 @@ export const SearchInput = styled.div`
     width: 0;
     height: 2px;
     background-color: ${props => props.theme.highlightcolor};
-    transition: 0.4s;
+    transition: 0.2s;
   }
+
   .effect-19 ~ .focus-border:after {
     top: auto;
-    bottom: 0;
+    bottom: -3px;
   }
   .effect-19 ~ .focus-border i:before,
   .effect-19 ~ .focus-border i:after {
@@ -40,7 +38,7 @@ export const SearchInput = styled.div`
     width: 2px;
     height: 0;
     background-color: ${props => props.theme.highlightcolor};
-    transition: 0.6s;
+    transition: 0.2s;
   }
   .effect-19 ~ .focus-border i:after {
     left: auto;
@@ -58,14 +56,13 @@ export const SearchInput = styled.div`
   .effect-19:focus ~ .focus-border i:after,
   .has-content.effect-19 ~ .focus-border i:before,
   .has-content.effect-19 ~ .focus-border i:after {
-    top: -1px;
+    top: 1px;
     height: 100%;
     transition: 0.6s;
   }
 
   input[type="text"] {
     width: 100%;
-    padding: 0px 10px;
   }
 `
 
