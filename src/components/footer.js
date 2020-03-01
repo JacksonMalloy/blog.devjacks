@@ -19,7 +19,15 @@ const StyledNavigationFooter = styled.footer`
   backdrop-filter: blur(30px);
   opacity: 0.9;
   max-width: 450px;
-  padding: 2rem;
+  padding: 2rem 2rem 2rem 0.5rem;
+
+  @media (max-width: 800px) {
+    padding: 0 0 1rem 0;
+    margin: auto;
+    width: 100%;
+    left: 0;
+    max-width: 10000px;
+  }
 `
 
 const SearchBox = ({ currentRefinement, refine }) => (

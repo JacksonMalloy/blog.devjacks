@@ -105,6 +105,11 @@ export const MainBody = styled.main`
   min-width: 320px;
   overflow-x: hidden;
   z-index: 3;
+
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 // MAIN
@@ -121,8 +126,18 @@ export const MainBody2 = styled.main`
   width: 100%;
   overflow-x: hidden;
   z-index: 1;
-
   top: 0;
+
+  @media (max-width: 1305px) {
+    grid-template-areas:
+      "e f f f f f f f f f f"
+      "e f f f f f f f f f f";
+  }
+
+  /* Removes overlay */
+  @media (max-width: 800px) {
+    display: none;
+  }
 `
 
 // CONTAINER

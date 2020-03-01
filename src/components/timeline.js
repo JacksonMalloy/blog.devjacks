@@ -8,6 +8,10 @@ const StyledTimeline = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(auto-fill, minmax(400px, 1fr));
 
+  @media (max-width: 1500px) {
+    grid-template-columns: 1fr;
+  }
+
   .container {
     grid-column: 1 / span 2;
   }
@@ -18,12 +22,16 @@ const StyledTimeline = styled.div`
     grid-template-rows: 100%;
     place-items: center;
 
-    .content {
-      grid-column: 2 / span 1;
+    @media (max-width: 1500px) {
+      grid-template-columns: 1fr;
     }
 
-    span {
-      grid-row: 1;
+    .content {
+      grid-column: 2 / span 1;
+
+      @media (max-width: 1500px) {
+        grid-column: 1;
+      }
     }
   }
 
@@ -33,8 +41,16 @@ const StyledTimeline = styled.div`
     grid-template-rows: 100%;
     place-items: center;
 
+    @media (max-width: 1500px) {
+      grid-template-columns: 1fr;
+    }
+
     .content {
       grid-column: 1 / span 1;
+
+      @media (max-width: 1500px) {
+        grid-column: 1;
+      }
     }
   }
 `

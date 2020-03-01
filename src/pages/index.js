@@ -17,6 +17,10 @@ const StyledContent = styled.div`
   z-index: 2;
   max-width: 450px;
   grid-area: a;
+
+  @media (max-width: 800px) {
+    padding: 6rem 0 10rem 0rem;
+  }
 `
 
 const StyledHidden = styled.div`
@@ -34,6 +38,12 @@ const StyledContact = styled.form`
   justify-self: right;
   justify-items: center;
   align-items: center;
+
+  /* Fix Later */
+
+  @media (max-width: 1305px) {
+    display: none;
+  }
 `
 
 const StyledTweets = styled.span`
@@ -47,6 +57,12 @@ const StyledTweets = styled.span`
   padding: 4rem 0;
   margin-right: 4rem;
   grid-row-gap: 1rem;
+
+  /* Fix Later */
+
+  @media (max-width: 1305px) {
+    display: none;
+  }
 `
 
 const StyledGallery = styled.section`
@@ -56,6 +72,14 @@ const StyledGallery = styled.section`
   padding: 5rem 0;
   grid-gap: 2rem;
   margin-left: 5rem;
+
+  @media (max-width: 1075px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 
   article {
     display: grid;
@@ -73,6 +97,14 @@ const StyledTrackList = styled.div`
   grid-column-start: 2;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-row-gap: 4rem;
+
+  @media (max-width: 1305px) {
+    padding-right: 3rem;
+  }
+
+  @media (max-width: 1075px) {
+    display: none;
+  }
 `
 
 const IndexPage = () => {
