@@ -1,4 +1,6 @@
 const queries = require("./src/utils/algolia")
+const path = require(`path`)
+
 require("dotenv").config()
 
 module.exports = {
@@ -14,20 +16,6 @@ module.exports = {
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "fonts",
-        path: `${__dirname}/src/fonts/`,
       },
     },
     `gatsby-transformer-remark`,

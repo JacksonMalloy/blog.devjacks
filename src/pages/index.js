@@ -1,10 +1,12 @@
 import React from "react"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../layout"
 import Footer from "../components/footer"
 import SoundCloudTracks from "../components/soundCloudTracks"
 import Twitter from "../components/twitter"
 import Timeline from "../components/timeline"
+import Contact from "../components/contact"
 
 import { MainBody, MainBody2 } from "../styles"
 import { CustomHits } from "../components/algolia"
@@ -73,29 +75,46 @@ const StyledTrackList = styled.div`
   grid-row-gap: 4rem;
 `
 
-const IndexPage = () => (
-  <Layout>
-    <MainBody>
-      <StyledContent>
-        <CustomHits />
-        <Footer />
-      </StyledContent>
-    </MainBody>
-    <MainBody2>
-      <StyledHidden>Hidden</StyledHidden>
-      <StyledGallery>
-        <Timeline />
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      imageOne: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1000) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
 
-        <StyledTrackList>
-          <SoundCloudTracks />
-        </StyledTrackList>
-      </StyledGallery>
-      <StyledTweets>
-        <Twitter />
-      </StyledTweets>
-      <StyledContact>Contact</StyledContact>
-    </MainBody2>
-  </Layout>
-)
+  console.log(data)
+
+  return (
+    <Layout>
+      <MainBody>
+        <StyledContent>
+          <CustomHits />
+          <Footer />
+        </StyledContent>
+      </MainBody>
+      <MainBody2>
+        <StyledHidden>Hidden</StyledHidden>
+        <StyledGallery>
+          <Timeline />
+          <StyledTrackList>
+            <SoundCloudTracks />
+          </StyledTrackList>
+        </StyledGallery>
+        <StyledTweets>
+          <Twitter />
+        </StyledTweets>
+        <StyledContact>
+          <Contact />
+        </StyledContact>
+      </MainBody2>
+    </Layout>
+  )
+}
 
 export default IndexPage

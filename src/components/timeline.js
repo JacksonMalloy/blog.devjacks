@@ -52,7 +52,9 @@ const Timeline = () => {
             primis ea eam.
           </p>
         </div>
-        <span>Img</span>
+        <span style={{ width: "100%", height: "100%" }}>
+          {/* <Image fluid={data.file.childImageSharp.fluid} /> */}
+        </span>
       </div>
       <div className="container left">
         <div className="content">
