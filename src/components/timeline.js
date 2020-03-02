@@ -6,7 +6,6 @@ const StyledTimeline = styled.div`
   margin: 0 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(auto-fill, minmax(400px, 1fr));
 
   @media (max-width: 1500px) {
     grid-template-columns: 1fr;
@@ -14,12 +13,14 @@ const StyledTimeline = styled.div`
 
   .container {
     grid-column: 1 / span 2;
+    display: grid;
+    place-items: center;
   }
 
   .right {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100%;
+    position: relative;
     place-items: center;
 
     @media (max-width: 1500px) {
@@ -28,9 +29,19 @@ const StyledTimeline = styled.div`
 
     .content {
       grid-column: 2 / span 1;
-
+      position: absolute;
       @media (max-width: 1500px) {
         grid-column: 1;
+      }
+
+      h2 {
+        margin: 0;
+        padding: 1rem;
+      }
+
+      p {
+        margin: 0;
+        padding: 1rem;
       }
     }
   }
@@ -40,16 +51,31 @@ const StyledTimeline = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 100%;
     place-items: center;
+    position: relative;
 
     @media (max-width: 1500px) {
       grid-template-columns: 1fr;
     }
 
+    span {
+      grid-column: 2 / span 1;
+    }
+
     .content {
       grid-column: 1 / span 1;
-
+      position: absolute;
       @media (max-width: 1500px) {
         grid-column: 1;
+      }
+
+      h2 {
+        margin: 0;
+        padding: 1rem;
+      }
+
+      p {
+        margin: 0;
+        padding: 1rem;
       }
     }
   }

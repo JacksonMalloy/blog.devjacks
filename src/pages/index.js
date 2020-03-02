@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../layout"
 import Footer from "../components/footer"
 import SoundCloudTracks from "../components/soundCloudTracks"
@@ -8,13 +9,13 @@ import Twitter from "../components/twitter"
 import Timeline from "../components/timeline"
 import Contact from "../components/contact"
 
-import { MainBody, MainBody2 } from "../styles"
+import { MainBody, MainBody2, MainBody3 } from "../styles"
 import { CustomHits } from "../components/algolia"
 
 const StyledContent = styled.div`
   padding: 6rem 0 10rem 2rem;
   display: grid;
-  z-index: 2;
+  z-index: 8;
   max-width: 450px;
   grid-area: a;
 
@@ -25,7 +26,7 @@ const StyledContent = styled.div`
 
 const StyledHidden = styled.div`
   display: grid;
-  z-index: 2;
+  z-index: 1;
   min-width: 450px;
   grid-area: e;
 `
@@ -33,8 +34,8 @@ const StyledHidden = styled.div`
 const StyledContact = styled.form`
   display: grid;
   grid-area: g;
-  max-width: 250px;
-  min-width: 250px;
+  width: 100%;
+  height: 100%;
   justify-self: right;
   justify-items: center;
   align-items: center;
@@ -107,14 +108,45 @@ const StyledTrackList = styled.div`
   }
 `
 
+const StyledFixedMainColumn = styled.div`
+  grid-column: 9 / 11;
+  height: 100vh;
+  width: 100%;
+  z-index: 3;
+  position: relative;
+  align-items: center;
+  justify-items: center;
+  display: grid;
+
+  h2 {
+    transform: rotate(-90deg);
+    margin: 0;
+    font-size: 7rem;
+  }
+
+  @media (max-width: 1305px) {
+    padding-right: 3rem;
+  }
+
+  @media (max-width: 1075px) {
+    display: none;
+  }
+`
+
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
-    query {
-      imageOne: file(relativePath: { eq: "gatsby-astronaut.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
+    query MyQuery {
+      imageSharp {
+        id
+        fluid {
+          base64
+          tracedSVG
+          srcWebp
+          srcSetWebp
+          originalImg
+          originalName
+          presentationWidth
+          presentationHeight
         }
       }
     }
@@ -134,17 +166,21 @@ const IndexPage = () => {
         <StyledHidden>Hidden</StyledHidden>
         <StyledGallery>
           <Timeline />
-          <StyledTrackList>
-            <SoundCloudTracks />
-          </StyledTrackList>
+          <StyledTrackList>{/* <SoundCloudTracks /> */}</StyledTrackList>
         </StyledGallery>
         <StyledTweets>
           <Twitter />
         </StyledTweets>
         <StyledContact>
+          <Img fluid={data.imageSharp.fluid} />
           <Contact />
         </StyledContact>
       </MainBody2>
+      <MainBody3>
+        <StyledFixedMainColumn>
+          <h2>Work in Progress</h2>
+        </StyledFixedMainColumn>
+      </MainBody3>
     </Layout>
   )
 }

@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { connectHits, connectHighlight } from "react-instantsearch-dom"
 import styled from "styled-components"
 
-const HitList = styled.section`
+const StyledHitList = styled.section`
   display: grid;
   grid-gap: 1rem;
 
@@ -12,7 +12,7 @@ const HitList = styled.section`
   }
 `
 
-const PostPreview = styled.article`
+const StyledPostPreview = styled.article`
   display: grid;
   justify-content: center;
   align-items: center;
@@ -25,12 +25,12 @@ const PostPreview = styled.article`
   }
 `
 
-const PostTitle = styled.h1`
+const StyledPostTitle = styled.h1`
   text-align: right;
   z-index: 2;
 `
 
-const PostDate = styled.p`
+const StyledPostDate = styled.p`
   font-size: 9rem;
   color: ${props => props.theme.highlightcolor};
   font-weight: 900;
@@ -39,13 +39,13 @@ const PostDate = styled.p`
   z-index: 2;
 `
 
-const PostExcerpt = styled.p`
+const StyledPostExcerpt = styled.p`
   text-align: right;
   padding: 20px 7px 20px 20px;
   z-index: 2;
 `
 
-const PostSubtitle = styled.h4`
+const StyledPostSubtitle = styled.h4`
   text-align: right;
   padding-top: 15px;
   padding-right: 10px;
@@ -104,29 +104,29 @@ const Snippet = ({ highlight, attribute, hit }) => {
 const CustomSnippet = connectHighlight(Snippet)
 
 const Hits = ({ hits }) => (
-  <HitList>
+  <StyledHitList>
     {hits.map(hit => (
       <Link to={hit.slug} key={hit.objectID}>
-        <PostPreview>
-          <PostTitle>
+        <StyledPostPreview>
+          <StyledPostTitle>
             <CustomHighlight hit={hit} attribute="title" />
-          </PostTitle>
+          </StyledPostTitle>
 
-          <PostDate>
+          <StyledPostDate>
             {Array.from(hit.date)
               .splice(0, 4)
               .concat()}
-          </PostDate>
+          </StyledPostDate>
 
-          <PostSubtitle>{hit.subtitle}</PostSubtitle>
+          <StyledPostSubtitle>{hit.subtitle}</StyledPostSubtitle>
 
-          <PostExcerpt>
+          <StyledPostExcerpt>
             <CustomSnippet hit={hit} attribute="content" />
-          </PostExcerpt>
-        </PostPreview>
+          </StyledPostExcerpt>
+        </StyledPostPreview>
       </Link>
     ))}
-  </HitList>
+  </StyledHitList>
 )
 
 export const CustomHits = connectHits(Hits)

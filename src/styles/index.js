@@ -125,7 +125,7 @@ export const MainBody2 = styled.main`
   grid-auto-flow: row dense;
   width: 100%;
   overflow-x: hidden;
-  z-index: 1;
+  z-index: 2;
   top: 0;
 
   @media (max-width: 1305px) {
@@ -140,7 +140,33 @@ export const MainBody2 = styled.main`
   }
 `
 
-// CONTAINER
+export const MainBody3 = styled.main`
+  height: 100vh;
+  border-right: none;
+  border-left: none;
+  display: grid;
+  position: fixed;
+  grid-template-areas:
+    "i j j j j j j j j j k"
+    "i j j j j j j j j j l";
+
+  grid-auto-flow: row dense;
+  width: 100%;
+  overflow-x: hidden;
+  top: 0;
+
+  @media (max-width: 1305px) {
+    grid-template-areas:
+      "e f f f f f f f f f f"
+      "e f f f f f f f f f f";
+  }
+
+  /* Removes overlay */
+  @media (max-width: 800px) {
+    display: none;
+  }
+`
+
 export const Container = styled.div`
   height: 100%;
   display: flex;

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 // SEARCH INPUT
-export const SearchInput = styled.div`
+export const StyledSearchInput = styled.div`
   width: 100%;
 
   .effect-19 {
@@ -66,14 +66,14 @@ export const SearchInput = styled.div`
   }
 `
 
-export const SearchSubmit = styled.button`
+export const StyledSearchSubmit = styled.button`
   height: 100%;
   color: ${props => props.theme.primary};
   background-color: ${props => props.theme.highlightcolor};
   border: none;
 `
 
-export const SearchForm = styled.form`
+export const StyledSearchForm = styled.form`
   display: flex;
   position: relative;
   height: 100%;

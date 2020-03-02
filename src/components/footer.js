@@ -1,7 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-
-import { SearchInput, SearchForm, SearchSubmit } from "../styles/search"
+import {
+  StyledSearchInput,
+  StyledSearchForm,
+  StyledSearchSubmit,
+} from "../styles/search"
 import { connectSearchBox } from "react-instantsearch-dom"
 
 const StyledNavigationFooter = styled.footer`
@@ -31,8 +34,8 @@ const StyledNavigationFooter = styled.footer`
 `
 
 const SearchBox = ({ currentRefinement, refine }) => (
-  <SearchForm noValidate action="" role="search">
-    <SearchInput className="input-effect">
+  <StyledSearchForm noValidate action="" role="search">
+    <StyledSearchInput className="input-effect">
       <input
         className="effect-19"
         type="search"
@@ -44,10 +47,10 @@ const SearchBox = ({ currentRefinement, refine }) => (
       <span className="focus-border">
         <i></i>
       </span>
-    </SearchInput>
+    </StyledSearchInput>
 
-    <SearchSubmit onClick={() => refine("")}>Refesh</SearchSubmit>
-  </SearchForm>
+    <StyledSearchSubmit onClick={() => refine("")}>Refesh</StyledSearchSubmit>
+  </StyledSearchForm>
 )
 
 const CustomSearchBox = connectSearchBox(SearchBox)
