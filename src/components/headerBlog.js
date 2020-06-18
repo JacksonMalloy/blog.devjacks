@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from "react"
-import { Link } from "gatsby"
-import { useScrollPosition } from "./useScrollPosition"
-import { BlogNavigationHeader } from "../styles"
-import ReadingProgress from "../components/readingProgress"
+import React, { useState, useMemo } from 'react'
+import { Link } from 'gatsby'
+import { useScrollPosition } from './useScrollPosition'
+import { BlogNavigationHeader } from '../styles'
+import ReadingProgress from '../components/readingProgress'
 
 const HeaderBlog = ({ target }) => {
   const [hideOnScroll, setHideOnScroll] = useState(true)

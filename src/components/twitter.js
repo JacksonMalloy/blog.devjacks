@@ -1,12 +1,10 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import styled from "styled-components"
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import styled from 'styled-components'
 
 const StyledTweet = styled.article`
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => theme.primary};
-  margin-left: 2rem;
   border-radius: 1rem;
 
   .tweet {
@@ -15,6 +13,7 @@ const StyledTweet = styled.article`
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 3fr;
     height: 100%;
+    box-shadow: 4px 4px 30px ${(props) => props.theme.primary};
 
     img {
       border-radius: 50%;
@@ -37,7 +36,7 @@ const StyledTweet = styled.article`
   }
 `
 
-const Twitter = props => {
+const Twitter = (props) => {
   const data = useStaticQuery(graphql`
     query TwitterFeed {
       allTwitterStatusesUserTimelineDevjacks {
@@ -47,9 +46,6 @@ const Twitter = props => {
             created_at
             full_text
             entities {
-              hashtags {
-                text
-              }
               user_mentions {
                 screen_name
                 name
@@ -74,29 +70,23 @@ const Twitter = props => {
 
   const user = data.twitterStatusesUserTimelineDevjacks.user
 
-  const tweets = data.allTwitterStatusesUserTimelineDevjacks.edges.map(
-    (node, i) => {
-      const {
-        node: { created_at, full_text },
-      } = node
+  const tweets = data.allTwitterStatusesUserTimelineDevjacks.edges.map((node, i) => {
+    const {
+      node: { created_at, full_text },
+    } = node
 
-      return (
-        <a
-          href="https://www.twitter.com/devjacks"
-          target="_blank"
-          rel="noopener norefferer"
-        >
-          <StyledTweet key={i}>
-            <div className="tweet">
-              <img src={user.profile_image_url_https} />
-              <small className="createdAt">{created_at}</small>
-              <span>{full_text}</span>
-            </div>
-          </StyledTweet>
-        </a>
-      )
-    }
-  )
+    return (
+      <a href="https://www.twitter.com/devjacks" target="_blank" rel="noopener noreferrer">
+        <StyledTweet key={i}>
+          <div className="tweet">
+            <img src={user.profile_image_url_https} alt="profile of jackson" />
+            <small className="createdAt">{created_at}</small>
+            <span>{full_text}</span>
+          </div>
+        </StyledTweet>
+      </a>
+    )
+  })
 
   return <>{tweets}</>
 }

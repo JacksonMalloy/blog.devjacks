@@ -1,11 +1,7 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import {
-  StyledSearchInput,
-  StyledSearchForm,
-  StyledSearchSubmit,
-} from "../styles/search"
-import { connectSearchBox } from "react-instantsearch-dom"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { StyledSearchInput, StyledSearchForm, StyledSearchSubmit } from '../styles/search'
+import { connectSearchBox } from 'react-instantsearch-dom'
 
 const StyledNavigationFooter = styled.footer`
   display: flex;
@@ -15,21 +11,17 @@ const StyledNavigationFooter = styled.footer`
   height: 50px;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.backgroundcolor};
+  background-color: ${(props) => props.theme.backgroundcolor};
   transition: 0.1s ease-in;
-  transform: ${props => (props.show ? "none" : "translateY(100%)")};
+  transform: ${(props) => (props.show ? 'none' : 'translateY(100%)')};
   z-index: 2;
   backdrop-filter: blur(30px);
   opacity: 0.9;
   max-width: 450px;
-  padding: 2rem 2rem 2rem 0.5rem;
+  padding: 2rem 0rem 2rem 0.5rem;
 
-  @media (max-width: 800px) {
-    padding: 0 0 1rem 0;
-    margin: auto;
-    width: 100%;
-    left: 0;
-    max-width: 10000px;
+  @media (max-width: 520px) {
+    padding-bottom: 0.2rem;
   }
 `
 
@@ -41,15 +33,14 @@ const SearchBox = ({ currentRefinement, refine }) => (
         type="search"
         value={currentRefinement}
         placeholder="Search"
-        onChange={event => refine(event.currentTarget.value)}
+        onChange={(event) => refine(event.currentTarget.value)}
       />
-
       <span className="focus-border">
         <i></i>
       </span>
     </StyledSearchInput>
 
-    <StyledSearchSubmit onClick={() => refine("")}>Refesh</StyledSearchSubmit>
+    <StyledSearchSubmit onClick={() => refine('')}>Refesh</StyledSearchSubmit>
   </StyledSearchForm>
 )
 

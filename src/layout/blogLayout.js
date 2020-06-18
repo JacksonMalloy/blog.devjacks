@@ -1,7 +1,6 @@
-import React from "react"
-import { MyThemeProvider } from "../themeContext"
-import { GlobalStyles } from "../globalStyles"
-import Header from "../components/header"
+import React from 'react'
+import { MyThemeProvider } from '../themeContext'
+import { GlobalStyles } from '../globalStyles'
 
 const BlogLayout = ({ children }) => {
   return (

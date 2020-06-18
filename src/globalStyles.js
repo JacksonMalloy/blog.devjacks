@@ -1,8 +1,7 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
     *, :after, :before {
-        box-sizing: inherit;
         text-decoration: none;
         font: 400 13px Roboto, sans-serif;
     }
@@ -19,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: ${props => props.theme.backgroundcolor}
+        background-color: ${(props) => props.theme.backgroundcolor}
     }
 
     main {
@@ -30,31 +29,31 @@ export const GlobalStyles = createGlobalStyle`
     h1 {
         font-size: 4rem;
         margin: 3rem 0.67rem;
-        font-weight: 900; 
-        color: ${props => props.theme.subprimary};
+        font-weight: 900;
+        color: ${(props) => props.theme.subprimary};
     }
 
     h2 {
         font-size: 2.667rem;
         margin: 3rem 0.67rem;
-        font-weight: 700; 
-        color: ${props => props.theme.subprimary};
+        font-weight: 700;
+        color: ${(props) => props.theme.subprimary};
     }
 
     h3 {
         font-size: 1.778rem;
         margin: 2rem 0.67rem;
-        font-weight: 700; 
+        font-weight: 700;
         line-height: 3rem;
-        color: ${props => props.theme.subprimary};
+        color: ${(props) => props.theme.subprimary};
     }
 
     h4 {
         font-size: 1.185rem;
         margin: 1.5rem 0.67rem;
-        font-weight: 900; 
+        font-weight: 900;
         line-height: 2rem;
-        color: ${props => props.theme.subprimary};
+        color: ${(props) => props.theme.subprimary};
     }
 
     p {
@@ -62,22 +61,22 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0.67rem;
         font-weight: 300;
         line-height: 2rem;
-        color: ${props => props.theme.subprimary};
+        color: ${(props) => props.theme.subprimary};
     }
 
     mark {
         font-size: 1.185rem;
         font-weight: 300;
         line-height: 2rem;
-        color: ${props => props.theme.primary};
-        background-color: ${props => props.theme.highlightcolor};
+        color: ${(props) => props.theme.primary};
+        background-color: ${(props) => props.theme.highlightcolor};
     }
 
     .titleHighlight {
         font-size: 4rem;
-        font-weight: 900; 
-        color: ${props => props.theme.primary};
-        background-color: ${props => props.theme.highlightcolor};
+        font-weight: 900;
+        color: ${(props) => props.theme.primary};
+        background-color: ${(props) => props.theme.highlightcolor};
     }
 
     span {
@@ -92,7 +91,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1.185rem;
         font-weight: 300;
         line-height: 2rem;
-        color: ${props => props.theme.subprimary};
+        color: ${(props) => props.theme.subprimary};
     }
 
     hr {

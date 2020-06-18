@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 // SEARCH INPUT
 export const StyledSearchInput = styled.div`
@@ -15,13 +15,13 @@ export const StyledSearchInput = styled.div`
 
   .effect-19 ~ .focus-border:before,
   .effect-19 ~ .focus-border:after {
-    content: "";
+    content: '';
     position: absolute;
     top: -1px;
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: ${props => props.theme.highlightcolor};
+    background-color: ${(props) => props.theme.highlightcolor};
     transition: 0.2s;
   }
 
@@ -31,13 +31,13 @@ export const StyledSearchInput = styled.div`
   }
   .effect-19 ~ .focus-border i:before,
   .effect-19 ~ .focus-border i:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 50%;
     left: 0;
     width: 2px;
     height: 0;
-    background-color: ${props => props.theme.highlightcolor};
+    background-color: ${(props) => props.theme.highlightcolor};
     transition: 0.2s;
   }
   .effect-19 ~ .focus-border i:after {
@@ -61,15 +61,15 @@ export const StyledSearchInput = styled.div`
     transition: 0.6s;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     width: 100%;
   }
 `
 
 export const StyledSearchSubmit = styled.button`
   height: 100%;
-  color: ${props => props.theme.primary};
-  background-color: ${props => props.theme.highlightcolor};
+  color: ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.highlightcolor};
   border: none;
 `
 

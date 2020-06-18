@@ -1,6 +1,6 @@
 // https://github.com/n8tb1t/use-scroll-position/tree/master/src
-import { useRef } from "react"
-import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect"
+import { useRef } from 'react'
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 
 const isBrowser = typeof window !== `undefined`
 
@@ -10,9 +10,7 @@ function getScrollPosition({ element, useWindow }) {
   const target = element ? element.current : document.body
   const position = target.getBoundingClientRect()
 
-  return useWindow
-    ? { x: window.scrollX, y: window.scrollY }
-    : { x: position.left, y: position.top }
+  return useWindow ? { x: window.scrollX, y: window.scrollY } : { x: position.left, y: position.top }
 }
 
 export function useScrollPosition(effect, deps, element, useWindow, wait) {
@@ -42,9 +40,9 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener('scroll', handleScroll)
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, deps)
 }
 

@@ -1,7 +1,7 @@
-import React from "react"
-import { Container, MainBody } from "../styles"
-import Layout from "../layout"
-import { Link } from "gatsby"
+import React from 'react'
+import { Container, MainBody } from '../styles'
+import Layout from '../layout'
+import { Link } from 'gatsby'
 
 const NotFoundPage = () => (
   <Layout>

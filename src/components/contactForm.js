@@ -1,27 +1,26 @@
-import React from "react"
-import { navigate } from "gatsby-link"
-import { StyledSearchInput } from "../styles/search"
-import styled from "styled-components"
+import React from 'react'
+import { navigate } from 'gatsby-link'
+import { StyledSearchInput } from '../styles/search'
+import styled from 'styled-components'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 const StyledForm = styled.form`
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 5fr 1fr;
   grid-template-columns: 1fr;
-  width: 100%;
   position: relative;
-  height: 100%;
   grid-row-gap: 4rem;
   justify-content: space-between;
+  width: 100%;
+  margin: 0;
 `
 
 const StyledParagraph = styled.p`
-  display: flex;
+  display: ${({ hidden }) => (hidden ? 'hidden' : 'flex')};
   margin: 0;
 
   label {
@@ -32,40 +31,45 @@ const StyledParagraph = styled.p`
       flex-direction: column;
       position: relative;
       height: 100%;
-      width: 100%;
+      max-width: 600px;
       justify-content: space-between;
+      background-color: ${({ theme }) => theme.primary};
+      border-radius: 1rem;
     }
 
     textarea {
       width: 100%;
-      max-height: 100%;
-      min-height: 100%;
-      min-width: 100%;
-      max-width: 100%;
+      min-width: 300px;
+      max-width: 600px;
+      max-height: 300px;
+      min-height: 300px;
+      background-color: ${({ theme }) => theme.primary};
+      border: none;
+      border-radius: 1rem;
     }
   }
 `
 
-const Contact = () => {
+const ContactForm = () => {
   const [state, setState] = React.useState({})
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": form.getAttribute("name"),
+        'form-name': form.getAttribute('name'),
         ...state,
       }),
     })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch(error => alert(error))
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error))
   }
 
   return (
@@ -81,8 +85,7 @@ const Contact = () => {
       <input type="hidden" name="form-name" value="contact" />
       <StyledParagraph hidden>
         <label>
-          Don’t fill this out:{" "}
-          <input name="bot-field" onChange={handleChange} />
+          Don’t fill this out: <input name="bot-field" onChange={handleChange} />
         </label>
       </StyledParagraph>
       <StyledParagraph>
@@ -91,13 +94,8 @@ const Contact = () => {
           <br />
           <div>
             <StyledSearchInput>
-              <input
-                type="text"
-                name="name"
-                onChange={handleChange}
-                className="effect-19"
-              />
-              <span className="focus-border">
+              <input type="text" name="name" onChange={handleChange} className="effect-19" />
+              <span>
                 <i></i>
               </span>
             </StyledSearchInput>
@@ -110,13 +108,8 @@ const Contact = () => {
           <br />
           <div>
             <StyledSearchInput>
-              <input
-                type="email"
-                name="email"
-                onChange={handleChange}
-                className="effect-19"
-              />
-              <span className="focus-border">
+              <input type="email" name="email" onChange={handleChange} className="effect-19" />
+              <span>
                 <i></i>
               </span>
             </StyledSearchInput>
@@ -137,4 +130,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default ContactForm

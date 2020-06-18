@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react'
 
 const ReadingProgress = ({ target }) => {
   const [readingProgress, setReadingProgress] = useState(0)
@@ -9,13 +9,8 @@ const ReadingProgress = ({ target }) => {
     }
 
     const element = target.current
-    const totalHeight =
-      element.clientHeight - element.offsetTop - window.innerHeight
-    const windowScrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0
+    const totalHeight = element.clientHeight - element.offsetTop - window.innerHeight
+    const windowScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
 
     if (windowScrollTop === 0) {
       return setReadingProgress(0)
@@ -29,8 +24,8 @@ const ReadingProgress = ({ target }) => {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollListener)
-    return () => window.removeEventListener("scroll", scrollListener)
+    window.addEventListener('scroll', scrollListener)
+    return () => window.removeEventListener('scroll', scrollListener)
   })
 
   return (
